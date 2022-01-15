@@ -11,13 +11,14 @@ from logs.log import exception
 
 def open_terminal(folder):
     try:
+        HOME = "/home/javi"
         to_say(random.choice(words_say["español"]["ok"]))
         return_path = subprocess.check_output(['pwd']).decode("utf-8").split("\n")
         if folder is "":
-            dest = "/home/javi-debian"
+            dest = HOME
         else:
             dest = ""
-            path = subprocess.check_output(['find', '/home/javi-debian/', '-name', folder]).decode("utf-8").split("\n")
+            path = subprocess.check_output(['find', HOME, '-name', folder]).decode("utf-8").split("\n")
             for p in path:
                 if "/." not in p:
                     dest = p

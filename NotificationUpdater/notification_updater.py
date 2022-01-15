@@ -14,7 +14,6 @@ def main():
     from main import mutex
     from main import check_context
     while True:
-        print("Hijo de puta")
         #mutex.acquire(1)
         check_context()
         calendar_check.main()

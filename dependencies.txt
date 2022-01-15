@@ -1,6 +1,6 @@
 google_speechi(sudo):
-    $ pip3 install google_speech
-    $ sudo apt-get install sox libsox-fmt-mp3
+pip3 install google_speech
+sudo apt-get install sox libsox-fmt-mp3
 SpeechRecognition
 python-httplib2 (pacman)
 python-uritemplate (pacman)
