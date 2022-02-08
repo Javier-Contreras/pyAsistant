@@ -1,4 +1,4 @@
-# Virtual assistant made from scratch just to learn Python
+# Virtual Assistant made in Python aiming to facilitate learning this language.
 The idea is to make a virtual assistant that doesnt need to recieve voice commands.
 
 It detects when my Mi Band is near by throught bluetooth and notify me about new emails, events in the calendar.
