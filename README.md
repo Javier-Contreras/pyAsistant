@@ -7,8 +7,8 @@ It can also interpret commands, differenciating between verbs and nouns, just to
 
 ### Features
      Check email and notify them
-     Check for events on Google calendar and notify when needed
-     Add events to Google calendar (not finished)
+     Check for events on Google Calendar and notify when needed
+     Add events to Google Calendar
      Make a backup to external drive
      Open file explorer on specific path
      Open terminal on specific path
