@@ -16,3 +16,16 @@ It can also interpret commands, differenciating between verbs and nouns, just to
      Play Spotify music and control volume
      Run specific app
      Check whenever Mi Band is close by Bluetooth scanning to notify new events, making a buffer of notifications not notified yet.
+
+
+### Dependencies
+
+* For sox:
+```
+sudo apt-get install sox libsox-fmt-mp3
+* ```
+
+* For PyAudio:
+```
+sudo apt-get install portaudio19-dev python-pyaudio
+```
