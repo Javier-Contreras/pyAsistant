@@ -40,7 +40,7 @@ to_hear = {
         "evento": "event",
         "eventos": "event",
         # ARCHIVOS
-        "archivos": "dolphin",
+        "archivos": "thunar",
         # TERMINAL
         "terminal": "terminal",
         "consola": "terminal",
@@ -64,7 +64,6 @@ to_hear = {
         "copia": "copy",
         # EMAIL
         "email": "email",
-        "alcor": "email",
         "correo": "email",
         # CARPETA
         "carpeta": "folder",
@@ -197,6 +196,7 @@ to_hear = {
     "vale": "yes",
     "venga": "yes",
     "hugo": "name",
+    "hotword": "asistente",
     "asistente": "name",
 }
 to_say = {
@@ -272,6 +272,7 @@ attributes = {
     "context_flag": False,
     "alarms": [],
     "reminders": {},
-    "pwd": "/home/javi/PycharmProjects/Asistente/"
+    'hotword': 'asistente',
+    "pwd": "/home/javi/Programs/PycharmProjects/pyAssistant/"
 
 }

@@ -16,7 +16,7 @@ def to_say(text):
     playing = "Playing" in str(player_status.stdout)
     os.system("playerctl stop")
     print("saying", saying)
-    os.system("play " + pwd + "AudioFiles/time-is-now.mp3 ")
+
     lang = "es"
     speech = Speech(text, lang)
 

@@ -31,7 +31,7 @@ def notification_time_out():
         notification_reminder = datetime.datetime.strptime(str(notification.get_reminder()), '%Y-%m-%d %H:%M:%S')
         time_delta_notification = datetime.datetime.now() - notification_reminder
         out_of_date = bool(notification.get_out_of_date())
-
+        print("NOTIFICATION_TIME_OUT: " + str(notification.get_out_of_date()))
         if out_of_date:
             log("NOTIFICATION_STORAGE", "NOTIFICATION_TIME_OUT", "HAY UNA NOTIFICACION DESACTUALIZADA")
             add_notifications_to_say_now(notification)

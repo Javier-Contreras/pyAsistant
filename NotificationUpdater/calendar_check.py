@@ -29,6 +29,7 @@ def main():
     if os.path.exists(pwd + 'ImportantFiles/token_calendar.pickle'):
         with open(pwd + 'ImportantFiles/token_calendar.pickle', 'rb') as token:
             creds = pickle.load(token)
+            print(creds)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:

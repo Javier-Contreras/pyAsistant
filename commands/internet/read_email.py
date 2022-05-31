@@ -11,8 +11,8 @@ from logs.log import log
 from logs.log import exception
 
 ORG_EMAIL = "@gmail.com"
-FROM_EMAIL = "contreras.javi.0" + ORG_EMAIL
-FROM_PWD = "rQG-eAd-e8A-eDC"
+FROM_EMAIL = "muirst20" + ORG_EMAIL
+FROM_PWD = "2021-muirst"
 SMTP_SERVER = "imap.gmail.com"
 SMTP_PORT = 993
 

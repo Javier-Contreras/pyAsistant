@@ -51,7 +51,7 @@ def init_backup(on_exit, popen_args):
 def check_device():
     devices = subprocess.check_output(['sudo', '-A', 'fdisk', '-l']).decode("utf-8").split("\n")
     for i in range(len(devices) - 1, 0, -1):
-        if "378,6G 83 Linux" in devices[i]:
+        if "745,2G 83 Linux" in devices[i]:
             return devices[i][0:9]
     return ""
 

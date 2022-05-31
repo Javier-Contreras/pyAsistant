@@ -3,7 +3,7 @@ import random
 import subprocess
 import time
 import commands.voice_recognition as vr
-
+import os
 from TTS import to_say
 from bluetoothNearBy import near_by
 from threading import Thread
@@ -18,12 +18,15 @@ from notification_storage import check_notifications
 from NotificationUpdater import notification_updater
 from logs.log import log
 from logs.log import exception
+import constants
+
+pwd = constants.attributes['pwd']
 
 call_flag = False
 mutex = Lock()
 
 
-def get_call(voice_command):
+def get_call(voice_command, hotword_flag):
     voice_words = voice_command.split()
     global call_flag
     if call_flag:
@@ -33,11 +36,13 @@ def get_call(voice_command):
         if attributes["context"] == "music_context" and word in words_hear["music_context"]:
             get_command(voice_words, voice_command)
         if word in words_hear:
-            if words_hear[word] == "name":
+            if hotword_flag:
+                os.system("play " + pwd + "AudioFiles/time-is-now.mp3 ")
+
                 if len(voice_words) > 1:
                     get_command(voice_words, voice_command)
                     break
-                to_say(random.choice(words_say["español"]["response"]))
+                #to_say(random.choice(words_say["español"]["response"]))
                 call_flag = True
                 break
     return
@@ -81,18 +86,18 @@ def main_thread():
                 log("MAIN", "main()", "Contexto: music_context:" + voice_command)
                 get_call(voice_command)
         else:
-            voice_command = vr.voice2speech()
+            voice_command, hotword_flag = vr.voice2speech()
             if not voice_command == "":
                 log("MAIN", "main()", voice_command)
-                get_call(voice_command)
+                get_call(voice_command, hotword_flag)
         mutex.release()
         #time.sleep(1)
 
 
 def main():
-    print("hdf")
     from NotificationUpdater.notification_updater import main as notification_system
     from main import main_thread
+    attributes["pwd"] = os.system('pwd')
     voice_recon_thread = Thread(target=main_thread, args=())
     notification_thread = Thread(target=notification_system, args=())
     voice_recon_thread.start()

@@ -16,8 +16,8 @@ def main():
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
-    if os.path.exists('/home/javi/PycharmProjects/Asistente/ImportantFiles/token_email.pickle'):
-        with open('/home/javi/PycharmProjects/Asistente/ImportantFiles/token_email.pickle', 'rb') as token:
+    if os.path.exists('ImportantFiles/token_email.pickle'):
+        with open('ImportantFiles/token_email.pickle', 'rb') as token:
             creds = pickle.load(token)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
@@ -25,17 +25,17 @@ def main():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials_email.json', SCOPES)
+                'ImportantFiles/credentials_email.json', SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
-        with open('token_email.pickle', 'wb') as token:
+        with open('ImportantFiles/token_email.pickle', 'wb') as token:
             pickle.dump(creds, token)
 
     service = build('gmail', 'v1', credentials=creds)
 
     # Call the Gmail API
-    emails = service.users().messages().get(userId='me', id='174444e387be243f', format='minimal').execute()
-    print(emails)
+    #emails = service.users().messages().get(userId='me', id='174444e387be243f', format='minimal').execute()
+    #print(emails)
     results = service.users().labels().list(userId='me').execute()
     labels = results.get('labels', ["INBOX"])
 

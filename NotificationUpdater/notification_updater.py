@@ -1,14 +1,15 @@
 import pickle
 import datetime
 import time
+import constants
+
 from logs.log import log
 from logs.log import exception
 
 from notification_storage import check_notifications
 from NotificationUpdater import calendar_check
 
-pwd = "/home/javi/PycharmProjects/Asistente/"
-
+pwd = constants.attributes['pwd']
 
 def main():
     from main import mutex

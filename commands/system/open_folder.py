@@ -28,7 +28,7 @@ def open_folder(folder):
         if dest is not "":
             print("Destino:", dest)
             os.chdir(dest)
-            os.system("dolphin . &")
+            os.system("thunar . &")
             os.chdir(return_path[0])
             log("OPEN_FOLDER", "open_folder", 'Abriendo una carpeta en: ' + dest)
         return

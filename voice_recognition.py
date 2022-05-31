@@ -1,10 +1,14 @@
 import speech_recognition as sr
+from constants import attributes
 
 r = sr.Recognizer()
 
 
 def voice2speech(threshold=200):
     global r
+    hot_word = attributes['hotword']
+    hotword_flag = False
+    r.pause_threshold = 5
     with sr.Microphone() as source:
         audio = r.listen(source)
         #audio = r.record(source, duration=5)
@@ -12,12 +16,17 @@ def voice2speech(threshold=200):
 
         try:
             print("Empieza a reconocer")
+            hotword_flag = False
             said = r.recognize_google(audio, language="es-ES")
             print("Reconoce")
             print(said)
+            if hot_word in said.lower:
+                hotword_flag = True
+
         except Exception as e:
-            print("Error:", str(e))
-    return said.lower()
+            pass
+            #print("Error:", str(e))
+    return said.lower(), hotword_flag
 
 
 def time_recognition():
@@ -35,7 +44,7 @@ def time_recognition():
             print("Reconoce")
             print(said)
         except Exception as e:
-            print("Error:", str(e))
+            print("E2rror:", str(e))
     return said.lower()
 """
     r = sr.Recognizer()
